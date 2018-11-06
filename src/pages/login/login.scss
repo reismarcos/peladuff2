@@ -1,0 +1,44 @@
+page-login {
+
+    .my-padding{
+        padding-top:35px !important;
+    }
+
+    .toolbar-title-md{
+        text-align: center !important;
+        color:#62de2f !important;
+    }
+    .item-md{
+        background: #222222 !important;
+    }
+
+    ion-navbar .button-md{
+        background: transparent !important;
+        color: #62de2f !important;
+        margin-left:60px;
+    }
+    
+    .btn-save{
+        width:100%;
+        color:#62de2f;
+        background-color: transparent;
+        border-color: #62de2f;
+        border: solid 2px;
+        border-radius:10px;
+        margin-top:30px;
+        padding-bottom: 10px;
+        padding-top:10px;
+    }
+
+    .toolbar-title-md {
+        padding-top:10px !important;
+    }
+
+    .text-input-md, .select-text, .date-time-text,.item-label-stacked ion-datetime, .item-label-floating ion-datetime {
+        color:#62de2f !important;
+    }
+
+    .alert-md .alert-wrapper{
+        background:#222222 !important;
+    }
+}

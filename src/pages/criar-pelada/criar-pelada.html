@@ -1,0 +1,58 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{title}} Pelada <button end ion-button icon-only (click)="onTrash()" *ngIf="!newPeladaFlag" ><ion-icon name="trash"></ion-icon></button></ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-list>
+
+        <ion-item>
+          <ion-label stacked>Nome da pelada</ion-label>
+          <ion-input type="text" [(ngModel)]="pelada.nome" value="" required></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label stacked>Data</ion-label>
+          <ion-datetime displayFormat="DD/MM/YYYY" type="text" [(ngModel)]="pelada.data" required></ion-datetime>
+        </ion-item>
+
+        <ion-item>
+          <ion-label stacked>Hora</ion-label>
+          <ion-input type="time" [(ngModel)]="pelada.hora" value="" required></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label stacked>Localização</ion-label>
+          <ion-input type="text" [(ngModel)]="pelada.local" value="" required></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label stacked>Modalidade</ion-label>
+          <ion-select class="mr-input" type="text" [(ngModel)]="pelada.modalidade" value="" required>
+            <ion-option value="Basquete">Basquete</ion-option>
+            <ion-option value="Futebol">Futebol</ion-option>
+            <ion-option value="Fut 7">Fut 7</ion-option>
+            <ion-option value="Futsal">Futsal</ion-option>
+            <ion-option value="Handebol">Handebol</ion-option>
+            <ion-option value="Vôlei">Vôlei</ion-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label stacked>Número máximo de jogadores</ion-label>
+          <ion-input type="number" [(ngModel)]="pelada.maxJogadores" value="" required></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label stacked>Descrição</ion-label>
+          <ion-input type="text" [(ngModel)]="pelada.descricao" value="" required></ion-input>
+        </ion-item>
+
+        <ion-col><button ion-button class="btn-save" (tap)="savePelada()" >Salvar</button></ion-col>
+
+  </ion-list>
+</ion-content>

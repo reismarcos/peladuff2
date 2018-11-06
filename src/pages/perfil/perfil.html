@@ -1,0 +1,55 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Informações Pessoais</ion-title>
+    
+    
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-list>
+
+      <ion-item>
+        <ion-label stacked>Nome</ion-label>
+        <ion-input type="text" [(ngModel)]="perfil.nome" required></ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label stacked>Curso</ion-label>
+        <ion-input type="text" [(ngModel)]="perfil.curso"></ion-input>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label stacked>Cidade</ion-label>
+        <ion-input type="text" [(ngModel)]="perfil.cidade"></ion-input>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label stacked>Matricula</ion-label>
+        <ion-input type="text" [(ngModel)]="perfil.matricula"></ion-input>
+      </ion-item>
+  
+      <ion-item>
+          <ion-label stacked>Modalidade</ion-label>
+        <ion-select  type="text" [(ngModel)]="perfil.modalidadeFav" stacked>
+           <ion-option value="Basquete">Basquete</ion-option>
+            <ion-option value="Futebol">Futebol</ion-option>
+            <ion-option value="Fut 7">Fut 7</ion-option>
+            <ion-option value="Futsal">Futsal</ion-option>
+            <ion-option value="Handebol">Handebol</ion-option>
+            <ion-option value="Vôlei">Vôlei</ion-option>
+        </ion-select>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label stacked>Posição</ion-label>
+        <ion-input type="text" [(ngModel)]="perfil.posFav"></ion-input>
+      </ion-item>
+  
+    </ion-list>  
+  
+    <button ion-button class="btn-save" (tap)="savePerfil()">Salvar</button> 
+</ion-content>

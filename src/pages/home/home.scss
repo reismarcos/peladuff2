@@ -1,0 +1,29 @@
+page-home {
+    .bg-transparent{
+        background-color:#222 !important;
+    }
+
+    h2{
+        margin-top:10x !important;
+        margin-bottom:10px !important;
+    }
+    .item-md, .card-md{
+        background: #222222 !important;
+        border: 1px solid #62de2f !important;
+        border-radius: 10px !important;
+        height:120px !important;
+        color:#fff !important;
+    }
+    .card-md h2{
+        color:#fff;
+    }
+ 
+
+    .fab{
+        background-color:#62de2f !important;
+    }
+
+    .toolbar-title-md {
+        text-align:center;
+    }
+}

@@ -1,0 +1,49 @@
+.tabs-md .tabbar {
+    background: #131212 !important;
+}
+
+.tabs-md .tab-button[aria-selected=true] {
+    color: #62de2f !important;
+}
+
+.tabs-md .tab-button[aria-selected=true] .tab-button-icon {
+    color: #62de2f !important;
+}
+
+.tabs-md .tab-button .tab-button-icon{
+    color:#fff !important;
+}
+
+.tabs-md .tab-button {
+    color:#fff !important;
+}
+
+.toolbar-background-md {
+    border-color: #131212;
+    background: #131212;
+}
+
+.toolbar-title-md {
+    color: #ffffff;
+}
+
+ion-app.md [padding] .scroll-content {
+    background: #222222;
+}
+
+.label-md[stacked]{
+    font-size: 1.4rem !important;
+    color: #fff !important;
+}
+
+.item-wp.item-input.item-input-has-focus .text-input,
+.item-wp.item-input.input-has-focus .text-input {
+  border-color: #62de2f !important;
+}
+
+.item-input-has-focus .label-md[stacked],
+.input-has-focus .label-md[stacked],
+.item-input-has-focus .label-md[floating],
+.input-has-focus .label-md[floating]{
+    border-color: #62de2f !important;
+}
