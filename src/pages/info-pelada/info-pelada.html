@@ -7,12 +7,22 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>info-pelada</ion-title>
+    <ion-title>Informações da pelada</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+  <ion-item>
+    <div class="info-title">Nome da pelada: {{ pelada.nome }}</div>
+    <div class="info-p">Modalidade: {{ pelada.modalidade }}</div>
+    <div class="info-p">Local: {{ pelada.local }}</div>
+    <div class="info-p">Dia: {{ pelada.data }}</div>
+    <div class="info-p">Hora: {{ pelada.hora }}</div>
+    <div class="info-p">Máximo de jogadores: {{ pelada.maxJogadores }}</div>
+    <div class="info-p">Descrição: {{ pelada.descricao }}</div>
 
+    <div class="btn"><button class="btn-save" >Participar</button></div> 
+  </ion-item>
 </ion-content>

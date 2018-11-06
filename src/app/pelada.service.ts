@@ -17,6 +17,10 @@ fetchByUser(userId){
   return this.db.list(userId+'/peladas/');
 }
 
+fetchByPelada(pelada){
+  return this.db.list('peladas/'+pelada.$key);
+}
+
 removePelada(pelada,userId){
   this.db.object('/peladas/'+ pelada.$key).remove()
     .then( x=> console.log("SUCCESS"))

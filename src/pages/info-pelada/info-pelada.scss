@@ -1,3 +1,32 @@
 page-info-pelada {
+    .btn-save{
+        width:100%;
+        color:#62de2f;
+        background-color: transparent;
+        border-color: #62de2f;
+        border: solid 2px;
+        border-radius:10px;
+        margin-top:30px;
+        padding-bottom: 10px;
+        padding-top:10px;
+    }
 
+    .item-md{
+        background: #222222 !important;
+    }
+
+    .info-title, .info-p{
+        padding:12px !important;
+        margin-bottom:10px;
+        border:2px solid #62de2f !important;
+        border-radius:10px;
+        color: #62de2f !important;
+        text-align:center;
+        color:#fff !important;
+        font-size:14px;
+    }
+
+    .info-title{
+        font-size:16px;
+    }
 }

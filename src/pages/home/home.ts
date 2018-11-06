@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 import { PeladaService } from '../../app/pelada.service';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { CriarPeladaPage } from '../criar-pelada/criar-pelada';
+import { InfoPeladaPage } from '../info-pelada/info-pelada';
 
 @Component({
   selector: 'page-home',
@@ -26,9 +27,8 @@ export class HomePage {
   }
 
   ItemClick(pelada){
-    this.navCtrl.push(CriarPeladaPage,{
+    this.navCtrl.push(InfoPeladaPage,{
       peladaParam : pelada,
-      title : "Editar",
     });
   }
 
