@@ -20,6 +20,7 @@ import { AuthService } from '../../app/auth.service';
 export class HistoricoPage {
   peladas;
   userId;
+  show = false;
   constructor(public navCtrl: NavController, private peladaService: PeladaService, db: AngularFireDatabase,private authService: AuthService) {
     console.log(db); 
     this.authService.getCurrentUser().subscribe(authState => {

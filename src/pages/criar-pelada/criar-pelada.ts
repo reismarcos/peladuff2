@@ -89,11 +89,11 @@ export class CriarPeladaPage {
  
   savePelada(){
     if(this.newPeladaFlag){
-      this.peladaService.removePelada(this.pelada,this.userId)
+      this.peladaService.removePelada(this.pelada,this.userId);
       this.peladaService.addPelada(this.pelada,this.userId);
     }
     else{
-      this.peladaService.removePelada(this.pelada,this.userId)
+      this.peladaService.removePelada(this.pelada,this.userId);
       this.peladaService.editPelada(this.pelada,this.userId); 
     }
     this.navCtrl.pop();      

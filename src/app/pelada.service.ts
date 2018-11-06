@@ -14,7 +14,12 @@ fetchPeladas(){
 }
 
 fetchByUser(userId){
-  return this.db.list(userId+'/peladas/');
+  return this.db.list('/peladas/',{
+    query: {
+        orderByChild: 'autor',
+        equalTo: userId,
+    }
+  });
 }
 
 fetchByPelada(pelada){
@@ -22,12 +27,6 @@ fetchByPelada(pelada){
 }
 
 removePelada(pelada,userId){
-  this.db.object('/peladas/'+ pelada.$key).remove()
-    .then( x=> console.log("SUCCESS"))
-    .catch( error => {
-      alert("Could not delete note.");
-      console.log("ERROR", error)
-    });
 
   this.db.object(userId + '/peladas/'+ pelada.$key).remove()
   .then( x=> console.log("SUCCESS"))
@@ -50,17 +49,7 @@ addPelada(pelada,userId){
       autor: userId    
   });
 
-  this.db.list(userId+'/peladas/').push({   
-    nome: pelada.nome,             
-    local: pelada.local,
-    data: pelada.data,
-    hora: pelada.hora,
-    modalidade: pelada.modalidade,
-    maxJogadores: pelada.maxJogadores,
-    descricao: pelada.descricao,   
-    autor: userId    
-});
-  
+ 
 } 
 
 editPelada(pelada,userId){
@@ -74,17 +63,7 @@ editPelada(pelada,userId){
     descricao: pelada.descricao,      
   });    
   
-  this.db.object(userId + '/peladas/'+ pelada.$key).update({
-    nome: pelada.nome,             
-    local: pelada.local,
-    data: pelada.data,
-    hora: pelada.hora,
-    modalidade: pelada.modalidade,
-    maxJogadores: pelada.maxJogadores,
-    descricao: pelada.descricao,      
-  });     
-  
-  
+
 
 }  
 }
