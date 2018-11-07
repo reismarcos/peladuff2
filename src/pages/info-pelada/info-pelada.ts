@@ -20,9 +20,9 @@ import { FirebaseObjectObservable } from 'angularfire2/database';
 export class InfoPeladaPage {
   peladas;
   pelada;
-  participantes: FirebaseObjectObservable<any>;
+  participantes;
   userId;
-  perfis: FirebaseObjectObservable<any>;
+  perfis;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private peladaService: PeladaService,private perfilService: PerfilService,private authService: AuthService) {
     this.pelada = this.navParams.get('peladaParam');
@@ -49,10 +49,11 @@ export class InfoPeladaPage {
 
   ngOninit(){
     this.peladaService.fetchParticipantes(this.pelada);
+    this.perfilService.fetchPerfil(this.userId);
   }
 
 
-  addParticipante(pelada){
-    this.peladaService.addParticipante(pelada);
+  addParticipante(pelada,nome){
+    this.peladaService.addParticipante(pelada,nome);
   }
 }

@@ -58,9 +58,9 @@ editPelada(pelada,userId){
   });    
 }
 
-addParticipante(pelada){
+addParticipante(pelada,nome){
   this.db.list('/peladas/'+ pelada.$key + '/participantes/').push({
-    nome:"perfil",
+    nome:nome,
   });
 }
 
