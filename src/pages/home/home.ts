@@ -14,6 +14,7 @@ export class HomePage {
   criarPelada = CriarPeladaPage;
   constructor(public navCtrl: NavController, private peladaService: PeladaService, db: AngularFireDatabase) {
     console.log(db); 
+    
   }
 
   ngOnInit(){
@@ -25,6 +26,8 @@ export class HomePage {
       title : "Criar",
     });
   }
+
+
 
   ItemClick(pelada){
     this.navCtrl.push(InfoPeladaPage,{

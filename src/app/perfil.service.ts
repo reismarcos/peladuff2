@@ -23,7 +23,7 @@ removePerfil(perfil,userId){
 }
 
 addPerfil(perfil, userId){    
-  this.db.list(userId + "/perfis").push({   
+  this.db.object(userId + "/perfis/"+userId).set({
       nome: perfil.nome,             
       matricula: perfil.matricula,
       curso: perfil.curso,
@@ -31,6 +31,7 @@ addPerfil(perfil, userId){
       posFav: perfil.posFav,
       cidade: perfil.cidade,
   });   
+  
  
 } 
 
@@ -45,6 +46,18 @@ editarPerfil(perfil,userId){
   });                
 }  
 
+fetchByUser(userId){
+  return this.db.list('/peladas/',{
+    query: {
+        orderByChild: 'autor',
+        equalTo: userId,
+    }
+  });
+}
+
+fetchPerfil(userId){
+  return this.db.list(userId+'/perfis/');
+}
 
 
 

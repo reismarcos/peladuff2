@@ -22,7 +22,13 @@
     <div class="info-p">Hora: {{ pelada.hora }}</div>
     <div class="info-p">Máximo de jogadores: {{ pelada.maxJogadores }}</div>
     <div class="info-p">Descrição: {{ pelada.descricao }}</div>
-
-    <div class="btn"><button class="btn-save" >Participar</button></div> 
+    
   </ion-item>
+
+  <h2>Jogadores confirmados:</h2>
+  <ion-item *ngFor="let participante of participantes | async">
+    <p>{{participante.nome}}</p>
+  </ion-item>
+
+  <div class="btn"><button class="btn-save" (tap)="addParticipante(pelada)" >Participar</button></div> 
 </ion-content>

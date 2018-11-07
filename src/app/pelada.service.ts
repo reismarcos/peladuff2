@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 
-import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireDatabase, FirebaseObjectObservable, FirebaseListObservable } from 'angularfire2/database';
 
 @Injectable()
 export class PeladaService{    
   peladas;
-
+  objeto: FirebaseObjectObservable<any>;
+  lista: FirebaseListObservable<any>;
   constructor(private db: AngularFireDatabase){      
 }  
 
@@ -22,12 +23,7 @@ fetchByUser(userId){
   });
 }
 
-fetchByPelada(pelada){
-  return this.db.list('peladas/'+pelada.$key);
-}
-
 removePelada(pelada,userId){
-
   this.db.object(userId + '/peladas/'+ pelada.$key).remove()
   .then( x=> console.log("SUCCESS"))
   .catch( error => {
@@ -46,10 +42,8 @@ addPelada(pelada,userId){
       modalidade: pelada.modalidade,
       maxJogadores: pelada.maxJogadores,
       descricao: pelada.descricao,   
-      autor: userId    
+      autor: userId,
   });
-
- 
 } 
 
 editPelada(pelada,userId){
@@ -62,8 +56,16 @@ editPelada(pelada,userId){
     maxJogadores: pelada.maxJogadores,
     descricao: pelada.descricao,      
   });    
-  
+}
 
+addParticipante(pelada){
+  this.db.list('/peladas/'+ pelada.$key + '/participantes/').push({
+    nome:"perfil",
+  });
+}
 
-}  
+fetchParticipantes(pelada){
+  return this.db.list('/peladas/'+pelada.$key + '/participantes/'); 
+}
+
 }
