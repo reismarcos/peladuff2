@@ -5,6 +5,8 @@ import { AngularFireDatabase, FirebaseObjectObservable, FirebaseListObservable }
 @Injectable()
 export class PeladaService{    
   peladas;
+  aux=0;
+  user;
   objeto: FirebaseObjectObservable<any>;
   lista: FirebaseListObservable<any>;
   constructor(private db: AngularFireDatabase){      
@@ -58,14 +60,30 @@ editPelada(pelada,userId){
   });    
 }
 
-addParticipante(pelada,nome){
-  this.db.list('/peladas/'+ pelada.$key + '/participantes/').push({
-    nome:nome,
+addParticipante(pelada,perfil){
+  this.db.object('/peladas/'+ pelada.$key + '/participantes/'+perfil.$key).set({
+    nome:perfil.nome,
+    id:perfil.$key,
   });
 }
 
 fetchParticipantes(pelada){
   return this.db.list('/peladas/'+pelada.$key + '/participantes/'); 
+}
+
+userParticipa(userId,pelada){
+  return this.user = this.db.list('/peladas/'+ pelada.$key + '/participantes/',{
+    query: {
+        orderByChild: 'id',
+        equalTo: userId,
+    }
+   
+  });
+ 
+}
+
+removeParticipante(pelada,perfil){
+  this.db.object('/peladas/'+ pelada.$key + '/participantes/' +perfil).remove();
 }
 
 }

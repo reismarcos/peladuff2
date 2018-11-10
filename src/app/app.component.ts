@@ -16,7 +16,15 @@ export class MyApp {
   rootPage:any = LoginPage;
 
   constructor (platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,private authService: AuthService) {
-   
+    this.authService.getCurrentUser().subscribe(authState => {
+      if(authState){
+      this.rootPage = TabsPage;
+      console.log("logged in as " + authState.uid);
+      }
+      else{
+      this.rootPage = 'LoginPage';
+      }
+      });
     
 
     platform.ready().then(() => {

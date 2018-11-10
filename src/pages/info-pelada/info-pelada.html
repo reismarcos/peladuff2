@@ -32,6 +32,11 @@
 
 
   <div class="btn" *ngFor="let perfil of perfis | async">
-    <button class="btn-save" (tap)="addParticipante(pelada,perfil.nome)" >Participar</button>
-  </div> 
+    <button class="btn-save" *ngIf="participar" (tap)="addParticipante(pelada,perfil)" >Participar</button>
+  </div>
+  
+  <div class="btn" *ngFor="let user of users | async">
+    <button class="btn-save" (tap)="removeParticipante(pelada)" >Sair</button>
+  </div>
+  
 </ion-content>
