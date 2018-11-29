@@ -23,28 +23,20 @@ export class InfoPeladaPage {
   participantes;
   userId;
   perfis;
-  participar = true;
-  button;
-  teste;
-  
-  users;
+  participaFlag = false;
+
   constructor(public navCtrl: NavController, public navParams: NavParams, private peladaService: PeladaService,private perfilService: PerfilService,private authService: AuthService) {
     this.pelada = this.navParams.get('peladaParam');
+
     this.participantes = this.peladaService.fetchParticipantes(this.pelada);
-    console.log(this.participantes);
-    console.log(this.teste);
+    
     this.authService.getCurrentUser().subscribe(authState => {
       this.userId = authState.uid;
       console.log(this.userId);
       this.perfis = this.perfilService.fetchPerfil(this.userId);
       console.log(this.perfis);
     });
-
-    this.users = this.peladaService.userParticipa(this.userId,this.pelada);
-    console.log(this.users);
-  
-  
-
+    
   }
 
 
@@ -57,16 +49,16 @@ export class InfoPeladaPage {
   ngOninit(){
     this.peladaService.fetchParticipantes(this.pelada);
     this.perfilService.fetchPerfil(this.userId);
-    this.peladaService.userParticipa(this.userId,this.pelada);
-    console.log(this.teste)
   }
 
 
   addParticipante(pelada,nome){
     this.peladaService.addParticipante(pelada,nome);
+    this.participaFlag = true;
   }
 
   removeParticipante(pelada){
     this.peladaService.removeParticipante(pelada,this.userId);
+    this.participaFlag = false;
   }
 }

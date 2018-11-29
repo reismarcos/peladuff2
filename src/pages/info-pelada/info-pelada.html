@@ -15,28 +15,28 @@
 
 <ion-content padding>
   <ion-item>
-    <div class="info-title">Nome da pelada: {{ pelada.nome }}</div>
-    <div class="info-p">Modalidade: {{ pelada.modalidade }}</div>
-    <div class="info-p">Local: {{ pelada.local }}</div>
-    <div class="info-p">Dia: {{ pelada.data }}</div>
-    <div class="info-p">Hora: {{ pelada.hora }}</div>
-    <div class="info-p">Máximo de jogadores: {{ pelada.maxJogadores }}</div>
-    <div class="info-p">Descrição: {{ pelada.descricao }}</div>
+    <div class="info-p">Nome da pelada: <span class=info-bd>{{ pelada.nome }}</span></div>
+    <div class="info-p">Modalidade:<span class=info-bd> {{ pelada.modalidade }}</span></div>
+    <div class="info-p">Local:<span class=info-bd> {{ pelada.local }}</span></div>
+    <div class="info-p">Dia:<span class=info-bd> {{ pelada.data }}</span></div>
+    <div class="info-p">Hora: <span class=info-bd>{{ pelada.hora }}</span></div>
+    <div class="info-p">Máximo de jogadores: <span class=info-bd>{{ pelada.maxJogadores }}</span></div>
+    <div class="info-p">Descrição: <span class=info-bd>{{ pelada.descricao }}</span></div>
     
   </ion-item>
 
-  <h2>Jogadores confirmados:</h2>
-  <ion-item *ngFor="let participante of participantes | async">
-    <p>{{participante.nome}}</p>
+  <h2 class="titulo-jc">Jogadores confirmados:</h2>
+  <ion-item *ngFor="let participante of participantes | async; let i = index">
+    <p class="p-jc">{{i+1}} - {{participante.nome}}</p>
   </ion-item>
 
-
-  <div class="btn" *ngFor="let perfil of perfis | async">
-    <button class="btn-save" *ngIf="participar" (tap)="addParticipante(pelada,perfil)" >Participar</button>
+  <div *ngIf="!participaFlag">
+    <div class="btn" *ngFor="let perfil of perfis | async">
+      <button class="btn-save" (tap)="addParticipante(pelada,perfil)" >Participar</button>
+    </div>
   </div>
-  
-  <div class="btn" *ngFor="let user of users | async">
+
+  <div *ngIf="participaFlag">
     <button class="btn-save" (tap)="removeParticipante(pelada)" >Sair</button>
   </div>
-  
 </ion-content>

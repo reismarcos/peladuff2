@@ -23,10 +23,22 @@ page-info-pelada {
         color: #62de2f !important;
         text-align:center;
         color:#fff !important;
-        font-size:14px;
+        font-size:11px;
+    }
+
+    .info-bd{
+        font-size:14px !important;
     }
 
     .info-title{
         font-size:16px;
+    }
+
+    #control #doff {
+        display: none;
+    }
+
+    .titulo-jc, .p-jc{
+        color:#fff !important;
     }
 }
